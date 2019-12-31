@@ -1,0 +1,122 @@
+Question: Is it stylistically ok to have more than one class forward
+declarations in a single header file? Like for the Node header I have the
+forward declarations for the Translate, Rotate, and Scale subclasses?
+Answer: Answered by Jake the TA. It was a good idea to declare multiple
+classes within the Node class.
+
+For the constructors for the Translate, Rotate, and Scale classes, is it
+saying that we have to call the constructors of all of its super classes
+in the constructor definition? (Implying that C++ does not automatically
+call the constructors of super classes.)
+In the lecture slides, it also said that if we create a constructor, we
+should also override the assignment operator and write the destructors
+for all of the subclasses. Are all of the super class destructors called
+if you make them al virtual? Does the same not happen if you were to
+make all of your constructors virtual,
+What is a copy constructor?
+
+Why does the order in which you call the constructor of the superclass
+sometimes cause warnings?
+
+How do I put a bar after a certain number of characters so that
+I know when I've reached my character / line limit?
+
+In the initialization list, is it ok for the parameters to have the
+same names as their corresponding data members?
+
+Don't you have to include math.h for sin and cos and M_PI. Also what's
+the difference between math.h and cmath
+
+Do you still need to call the superclass constructor in copy
+constructors? Can you pass a subclass reference when a superclass
+was expected for the reference?
+In the copy constructor, is it ok for he new node to bpoint to the same
+Drawable object?
+
+Is there a way to get the assignment operator of a subclass to also
+call the assignment operator of a superclass?
+
+What does the access modifier in front of the inherited class
+mean?
+
+When we wan to destroy an object (free it from memory), do we
+call .destroy or .~ClassName. Will we ever need to directly
+call the destructor? Or was the keyword delete()?
+
+Should I/can I iniitialize the root node in the MyGL constructor?
+
+Where do I call the scene graph construction function in the
+initializeGL function?
+
+Where do I invoke the traversal function in the paintGL function?
+
+Is the sense of ownership still maintained even though in traverse()
+I have references to the Node that is pointed to by a uPtr?
+
+
+
+
+
+
+09/17/19 | 12:53am
+I was receiving an error where I was declaring an operator override
+for the assignment = operator in the Node class. The error said
+"Cannot declare parameter to be of abstract type Node."
+This StackOverflow post said to... "Your operator functions are
+accepting their arguments by copy. However, a new instance of
+GameNode can not be constructed because of the pure virtual
+functions. You probably want to accept those arguments by
+reference instead."
+And it worked! I should have passed a reference for some reason
+instead of the obejct itself.
+(https://stackoverflow.com/questions/12667002/c-cannot-declare-
+parameter-to-be-of-abstract-type)
+
+09/17/19 | 01:02am
+node.cpp:42: error: prototype for 'TranslateNode::TranslateNode(TranslateNode&)' does not match any in class 'TranslateNode'
+ TranslateNode::TranslateNode(TranslateNode &tn)
+ ^
+
+node.h:34: error: candidates are: TranslateNode::TranslateNode(const TranslateNode&)
+     TranslateNode(const TranslateNode& tn);
+     ^
+I just forgot to make the parameters also const even though
+I declared the parameters to be const in the header file.
+But, the error message made it seem like I already defined them.
+
+
+If I get an error like this...
+mygl.cpp:176: error: use of deleted function 'std::unique_ptr<_Tp, _Dp>::unique_ptr(const std::unique_ptr<_Tp, _Dp>&) [with _Tp = Node; _Dp = std::default_delete<Node>]'
+     torso->adopt(t0);
+                    ^
+It's probably because I need to call the move() method when passing in my uPtr.
+Anytime I want to move or copy uptr I must use move() no matter what.
+
+
+I was having trouble with casting d (a raw pointer to Drawable) to a Polygon2D
+so that I can call the setColor method. In order to do this, I first
+retrieved d and then dereferenced and then tried casting it to a Polygon2D.
+However, that did not compile because I think the compiler was thinking I was
+calling the constructor of Polygon2D which does not have the arguments
+Drawable. So in order to circumvent this issue, I casted the Drawable* into a
+Polygon2D* and then dereferenced, and it worked!
+
+Some of the warnings I was getting was because I didn't have a default
+constructor (i.e. a constructor that does not take in any arguments).
+
+For the signal for sending my root node, should I send a Uptr or a reference or
+a raw pointer to make this eaasier?
+
+The problem I was having with the undefined reference in my signal emission
+was that I needed to add Q_OBJECT as the first thing in my MyGL class
+declaration (without a semicolon at the end). Then go to Build > qmake.
+And then build the project. You may also need to clean your project.
+
+The naming of my nodes may seem random, but there's actually a pattern. For
+everything below the l_shoulder (left shoulder), the L indicates that the
+nodes correspond to the left arm. The A indicates nodes corresponding to the
+forearm and the B corresponds to nodes for the upper arm. Then the numbers
+indicate which frames the matrices are transforming the object from (left
+number) and to (right number). The nodes with t in their name corresponds to
+nodes for the torso. The nodes with h in their name corresponds to nodes for
+the head.

@@ -1,0 +1,17 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\mygl.o
+./release\shaderprogram.o
+./release\utils.o
+./release\la.o
+./release\drawable.o
+./release\grid.o
+./release\polygon.o
+./release\openglcontext.o
+./release\node.o
+./release\qrc_glsl.o
+./release\moc_mainwindow.o
+./release\moc_mygl.o
+./release\moc_openglcontext.o
+);

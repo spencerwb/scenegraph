@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1093</width>
+    <height>558</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Scene Graph</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="MyGL" name="mygl">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>11</y>
+      <width>500</width>
+      <height>500</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTreeWidget" name="sceneGraph">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>10</y>
+      <width>341</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="rootIsDecorated">
+     <bool>true</bool>
+    </property>
+    <attribute name="headerVisible">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string notr="true">1</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QSpinBox" name="tX">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>10</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>-10</number>
+    </property>
+    <property name="maximum">
+     <number>10</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="tY">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>60</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>-10</number>
+    </property>
+    <property name="maximum">
+     <number>10</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="theta">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>110</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="sX">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>160</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="sY">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>200</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addGeom">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>400</y>
+      <width>181</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+Geometry</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addT">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>400</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+Translate</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addR">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>440</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+Rotation</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addS">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>480</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+Scale</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="txLabel">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>10</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>X Translation:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tyLabel">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>70</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Y Translation:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="sxLabel">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>170</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>X Scale:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="syLabel">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>210</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Y Scale:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rotLabel">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>110</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Rotation (Degrees):</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1093</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>MyGL</class>
+   <extends>QOpenGLWidget</extends>
+   <header>mygl.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

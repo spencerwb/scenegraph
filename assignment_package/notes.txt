@@ -1,0 +1,8 @@
+I don't know what the copy constructor, operator=, or the destructor
+is supposed to be doing exactly.
+
+I also don't know if I can use the assignment operator on Drawable
+and glm::vec3 or ::mat3. Is it a deep copy or shallow copy or copy
+of the pointer? Right now it just does the same thing as the copy
+constructor. Also, for initialization lists, does it use the
+assignment operator to assign values to data members?
